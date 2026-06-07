@@ -213,6 +213,153 @@
         </div>
     </section>
 
+    <!-- APPOINTMENT -->
+    <!-- APPOINTMENT -->
+<section class="appointment" id="appointment">
+    <div class="section-header">
+        <h2><span>Book</span> your <span>First</span> Step</h2>
+        <p>Choose your visit type, date, and preferred time</p>
+    </div>
+
+    <div class="progress-bar">
+        <div class="step active">
+            <span></span>
+            <p>Appointment</p>
+        </div>
+
+        <div class="step">
+            <span></span>
+            <p>Patient Info</p>
+        </div>
+
+        <div class="step">
+            <span></span>
+            <p>Review</p>
+        </div>
+    </div>
+
+    <div class="booking-box">
+
+        <!-- STEP 1 -->
+        <div class="booking-step active" id="stepAppointment">
+            <h3>What type of appointment would you like to book?</h3>
+
+            <div class="appointment-types">
+                <button class="type-card active">Dental Cleaning<br>(60min)</button>
+                <button class="type-card">Cleaning & Checkup<br>(60min)</button>
+                <button class="type-card">New Patient Exam<br>(90min)</button>
+            </div>
+
+            <hr>
+
+            <h3>Available Appointments</h3>
+
+            <div class="month-title" id="monthTitle"></div>
+
+            <div class="date-row">
+                <button class="circle-btn" id="prevWeek">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+
+                <div class="dates-container" id="datesContainer"></div>
+
+                <button class="circle-btn" id="nextWeek">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+
+            <hr>
+
+            <p class="selected-date"></p>
+
+            <div class="time-row">
+                <button class="time-btn">08:00 AM</button>
+                <button class="time-btn active">08:30 AM</button>
+                <button class="time-btn">09:00 AM</button>
+            </div>
+
+            <div class="next-wrapper">
+                <button type="button" class="next-btn" id="appointmentNextBtn">Next Step</button>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="booking-step" id="stepPatientInfo">
+            <h3>Patient Information</h3>
+
+            <form class="patient-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birthDate">Birth Date</label>
+                        <input type="date" id="birthDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cell">Cell</label>
+                        <input type="tel" id="cell" placeholder="(613) 123-4567" required>
+                    </div>
+                </div>
+
+                <div class="form-group full">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" placeholder="example@email.com" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" placeholder="Anything you would like us to know"></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="previous-btn" id="patientInfoPreviousBtn">Previous</button>
+                    <button type="button" class="next-btn" id="patientInfoNextBtn">Next Step</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="booking-step" id="stepReview">
+            <h3>Review Your Appointment</h3>
+
+            <div class="review-grid">
+                <div class="review-card">
+                    <h4>Appointment Details</h4>
+                    <p><strong>Type:</strong> <span id="reviewType"></span></p>
+                    <p><strong>Date:</strong> <span id="reviewDate"></span></p>
+                    <p><strong>Time:</strong> <span id="reviewTime"></span></p>
+                </div>
+
+                <div class="review-card">
+                    <h4>Patient Details</h4>
+                    <p><strong>Name:</strong> <span id="reviewName"></span></p>
+                    <p><strong>Birth Date:</strong> <span id="reviewBirthDate"></span></p>
+                    <p><strong>Cell:</strong> <span id="reviewCell"></span></p>
+                    <p><strong>Email:</strong> <span id="reviewEmail"></span></p>
+                    <p><strong>Notes:</strong> <span id="reviewNotes"></span></p>
+                </div>
+            </div>
+
+            <div class="form-buttons">
+                <button type="button" class="previous-btn" id="reviewPreviousBtn">Previous</button>
+                <button type="button" class="next-btn" id="confirmAppointmentBtn">Confirm Appointment</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
     <script src="script.js"></script>
 </body>
 </html>

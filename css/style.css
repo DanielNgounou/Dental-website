@@ -49,6 +49,9 @@
     --gap-nav: 26px;
     --gap-hero: 80px;
     --gap-stats: 180px;
+
+    /*steps sizes*/
+    --step-max-width:500px;
 }
 
 /* RESET */
@@ -66,17 +69,35 @@ body {
     font-family: var(--body-font);
     background: var(--white);
     color: var(--text-dark);
+    padding-top: var(--navbar-height);
+}
+
+section{
+    scroll-margin-top: calc(var(--navbar-height) + 0px);
 }
 
 /* NAVBAR */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: var(--navbar-height);
+
     padding: 0 var(--page-padding);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--white);
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    z-index: 9999;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .logo img {
@@ -95,9 +116,14 @@ body {
     color: var(--text-dark);
     font-size: var(--fs-nav);
     font-weight: var(--fw-regular);
+    transition: color 0.2s ease;
 }
 
 .nav-links a.active {
+    color: var(--primary-blue);
+}
+
+.nav-links a:hover {
     color: var(--primary-blue);
 }
 
@@ -112,6 +138,12 @@ body {
     color: var(--text-dark);
     font-size: var(--fs-nav);
     font-weight: var(--fw-regular);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.phone-box:hover {
+    background: #e8e8e8;
+    transform: translateY(-2px);
 }
 
 .phone-box i {
@@ -429,4 +461,378 @@ body {
     font-family: var(--heading-font);
     font-size: 1.25rem;
     font-weight: var(--fw-bold);
+}
+
+/* APPOINTMENT */
+.appointment {
+    padding: 90px var(--page-padding);
+    text-align: center;
+}
+
+.appointment .section-header h2 {
+    margin-bottom: 8px;
+}
+
+.appointment .section-header span {
+    color: var(--primary-blue);
+    font-weight: var(--fw-bold);
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    width: 480px;
+    margin: 45px auto 35px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 35px;
+    right: 35px;
+    height: 1px;
+    background: #777;
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.step span {
+    width: 16px;
+    height: 16px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.step.active span {
+    background: var(--primary-blue);
+}
+
+.step p {
+    font-size: 0.9rem;
+}
+
+/* BOOKING BOX */
+.booking-box {
+    width: 100%;
+    max-width: var(--step-max-width);
+    margin: auto;
+    text-align: left;
+}
+
+.booking-box h3 {
+    text-align: center;
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+    margin-bottom: 25px;
+}
+
+.booking-box hr {
+    border: none;
+    height: 1px;
+    background: #d9d9d9;
+    margin: 22px 0;
+}
+
+/* APPOINTMENT TYPE CARDS */
+.appointment-types {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 22px;
+}
+
+.type-card {
+    width: 150px;
+    height: 90px;
+    border: none;
+    border-radius: 12px;
+    background: var(--light-gray);
+    color: var(--text-dark);
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.type-card:hover {
+    background: #e4e4e4;
+    transform: translateY(-3px);
+}
+
+.type-card.active{
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+/* MONTH */
+.month-title {
+    font-family: var(--heading-font);
+    font-size: 1.25rem;
+    font-weight: var(--fw-bold);
+    margin-bottom: 20px;
+}
+
+/* DATE ROW */
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dates-container {
+    display: flex;
+    gap: 8px;
+}
+
+.circle-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    color: var(--white);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.circle-btn:hover {
+    background: #002f63;
+    transform: scale(1.08);
+}
+
+/* .circle-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+} */
+
+.date-card {
+    width: 52px;
+    height: 58px;
+    border: none;
+    border-radius: 8px;
+    background: #d9d9d9;
+    color: var(--text-dark);
+    font-family: var(--body-font);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.date-card span,
+.date-card strong {
+    display: block;
+}
+
+.date-card:hover:not(.disabled) {
+    /* background: #cfcfcf; */
+    transform: translateY(-2px);
+}
+
+.date-card.active{
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.date-card.disabled {
+    color: var(--white);
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.date-card.disabled:hover {
+    transform: none;
+}
+
+/* SELECTED DATE */
+.selected-date {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* TIME BUTTONS */
+.time-row {
+    display: flex;
+    gap: 8px;
+}
+
+.time-btn {
+    padding: 7px 11px;
+    border-radius: 18px;
+    border: 1px solid var(--primary-blue);
+    background: var(--white);
+    color: var(--primary-blue);
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.time-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.time-btn.active{
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+/* NEXT BUTTON */
+.next-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-btn {
+    margin-top: 5px;
+    padding: 7px 13px;
+    border-radius: 18px;
+    border: 1px solid var(--primary-blue);
+    background: var(--white);
+    color: var(--primary-blue);
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.next-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.booking-step {
+    display: none;
+}
+
+.booking-step.active {
+    display: block;
+}
+
+
+.booking-step h3 {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+    margin-bottom: 18px;
+}
+.patient-form{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#stepPatientInfo{
+    max-width: var(--step-max-width);
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    background: #fafafa;
+}
+
+.form-group input{
+    height: 42px;
+    padding: 0 12px;
+}
+
+.form-group textarea{
+    height: 80px;
+    padding: 12px;
+}
+
+.form-row{
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.form-group.full{
+    margin-bottom: 16px;
+}
+
+.form-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.previous-btn {
+    padding: 8px 12px;
+    border-radius: 15px;
+    border: 1px solid var(--primary-blue);
+    background: var(--white);
+    color: var(--primary-blue);
+    font-family: var(--body-font);
+    cursor: pointer;
+}
+
+.previous-btn:hover,
+.next-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+
+
+/* REVIEW */
+.review-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 30px auto 0;
+}
+
+.review-card {
+    background: var(--light-gray);
+    padding: 22px;
+    border-radius: 16px;
+    text-align: left;
+}
+
+.review-card h4 {
+    font-family: var(--heading-font);
+    color: var(--primary-blue);
+    margin-bottom: 14px;
+}
+
+.review-card p {
+    font-size: 0.92rem;
+    margin-bottom: 10px;
 }
