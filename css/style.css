@@ -836,3 +836,90 @@ section{
     font-size: 0.92rem;
     margin-bottom: 10px;
 }
+
+
+/* PREPARE VISIT */
+.prepare {
+    padding: 90px var(--page-padding);
+    text-align: center;
+}
+
+.prepare .section-header p {
+    margin-bottom: 70px;
+}
+
+.prepare-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 120px;
+    text-align: left;
+}
+
+.documents-box h3,
+.timeline-item h3 {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+    margin-bottom: 22px;
+}
+
+.documents-box ul {
+    list-style: none;
+}
+
+.documents-box li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.9rem;
+    margin-bottom: 13px;
+}
+
+.documents-box i {
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+}
+
+
+
+
+/* TIMELINE */
+.visit-timeline {
+    position: relative;
+    padding-left: 45px;
+}
+
+.visit-timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: 1px;
+    height: 270px;
+    background: #777;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.timeline-item span {
+    position: absolute;
+    left: -45px;
+    top: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+}
+
+.timeline-item h3 {
+    margin-bottom: 12px;
+}
+
+.timeline-item p {
+    font-size: 0.95rem;
+    margin-bottom: 9px;
+}
