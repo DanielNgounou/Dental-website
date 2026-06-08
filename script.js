@@ -292,25 +292,35 @@ confirmBtn.addEventListener("click", () => {
 });
 
 
-const backToTop = document.querySelector(".floating-top");
 const appointmentBtn = document.querySelector(".floating-appointment");
+const backToTop = document.querySelector(".floating-top");
+const appointmentSection = document.querySelector("#appointment");
 
 window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 300){
+    const appointmentRect = appointmentSection.getBoundingClientRect();
+
+    /* SHOW/HIDE APPOINTMENT BUTTON */
+    if (
+        window.scrollY > 300 &&
+        (
+            appointmentRect.top > 150 ||
+            appointmentRect.bottom < 150
+        )
+    ) {
         appointmentBtn.classList.add("show");
-    }else{
+    } else {
         appointmentBtn.classList.remove("show");
     }
 
-    if(window.scrollY > 600){
+    /* SHOW/HIDE BACK TO TOP */
+    if (window.scrollY > 600) {
         backToTop.classList.add("show");
-    }else{
+    } else {
         backToTop.classList.remove("show");
     }
 
 });
-
 
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-links a");

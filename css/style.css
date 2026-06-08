@@ -1848,3 +1848,78 @@ section{
     }
 }
 
+/* FOOTER RESPONSIVE */
+@media (max-width: 768px) {
+
+    .footer {
+        padding: 50px 24px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 35px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        width: 120px;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .footer-item {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-item i {
+        margin-top: 2px;
+    }
+}
+
+/* SMALL PHONES */
+@media (max-width: 420px) {
+
+    .footer {
+        padding: 40px 18px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .footer-links a {
+        font-size: 0.85rem;
+    }
+
+    .footer-logo img {
+        width: 105px;
+    }
+
+    .footer-item {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer-item h4 {
+        margin-bottom: 4px;
+    }
+
+    .footer-item p {
+        font-size: 0.8rem;
+    }
+}
+
