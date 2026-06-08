@@ -52,6 +52,9 @@
 
     /*steps sizes*/
     --step-max-width:500px;
+
+    /*container sizes*/
+    --container-width: 1440px;
 }
 
 /* RESET */
@@ -1923,3 +1926,27 @@ section{
     }
 }
 
+
+/* LARGE SCREEN CONTENT LIMIT */
+@media (min-width: 1500px) {
+    .hero,
+    .stats,
+    .testimonials,
+    .services,
+    .team,
+    .appointment,
+    .prepare {
+        max-width: var(--container-width);
+        margin-inline: auto;
+    }
+
+    .navbar {
+        padding-left: calc((100vw - var(--container-width)) / 2);
+        padding-right: calc((100vw - var(--container-width)) / 2);
+    }
+
+    .footer-content {
+        max-width: var(--container-width);
+        margin-inline: auto;
+    }
+}
