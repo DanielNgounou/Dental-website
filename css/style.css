@@ -982,8 +982,12 @@ section{
     flex-direction: column;
     align-items: flex-end;
     gap: 18px;
-
+    pointer-events: none;
     z-index: 999;
+}
+
+.floating-actions a{
+    pointer-events: auto;
 }
 
 .floating-appointment{
@@ -1031,17 +1035,20 @@ section{
 }
 
 .floating-top,
-.floating-appointment{
+.floating-appointment {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-
-    transition: 0.3s ease;
+    transform: translateX(120%);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
 }
 
 .floating-top.show,
-.floating-appointment.show{
+.floating-appointment.show {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
+    transform: translateX(0);
 }
 
 
