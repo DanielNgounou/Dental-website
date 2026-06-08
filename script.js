@@ -279,18 +279,80 @@ function fillReview() {
 
 
 /* CONFIRMATION */
-confirmAppointmentBtn.addEventListener("click", () => {
-    alert("Your appointment request has been submitted successfully.");
+const confirmBtn = document.getElementById("confirmAppointmentBtn");
+
+confirmBtn.addEventListener("click", () => {
+
+    alert("Appointment booked successfully!");
+
+    setTimeout(() => {
+        location.reload();
+    }, 1500);
+
 });
 
+
 const backToTop = document.querySelector(".floating-top");
+const appointmentBtn = document.querySelector(".floating-appointment");
 
 window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 500){
+    if(window.scrollY > 300){
+        appointmentBtn.classList.add("show");
+    }else{
+        appointmentBtn.classList.remove("show");
+    }
+
+    if(window.scrollY > 600){
         backToTop.classList.add("show");
     }else{
         backToTop.classList.remove("show");
     }
+
+});
+
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+function updateActiveNav() {
+    let currentSection = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+            currentSection = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === `#${currentSection}`) {
+            link.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", updateActiveNav);
+window.addEventListener("load", updateActiveNav);
+
+
+
+// MOBILE MENU
+
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+
+    menuBtn.classList.toggle("active");
+
+    mobileMenu.classList.toggle("active");
 
 });
